@@ -126,7 +126,9 @@ def get_analytics(req: Table2Request):
 
     ## Determine included columns, cell types
     # note that we iterate through col_list to enforce a standard column order
-    _col_list = [c for c in col_list if c in req.columns] or []
+    _col_list = [c for c in col_list if c in req.columns]
+    if not _col_list:
+        return {'table': [], 'columns': [], 'value_counts': {}}
     cell_types = filtered['population'].dropna().unique().tolist()
 
     ## Pivot to wide data
@@ -147,7 +149,6 @@ def get_analytics(req: Table2Request):
     pivoted = pivoted.rename(columns={'All': 'total_count'})
 
     cell_types_full = cell_types + ['total_count']
-
     ## If requested, convert to proportions
     if req.show_proportions:
         pivoted[cell_types_full] = pivoted[cell_types_full].div(pivoted['total_count'], axis=0)

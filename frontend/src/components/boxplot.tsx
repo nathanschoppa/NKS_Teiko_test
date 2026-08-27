@@ -34,7 +34,7 @@ const BoxplotChart = ({ data, factor }: Props) => {
             layout={{
                 title: {text: `Cell Type Proportions by ${factor}`},
                 xaxis: { title: { text: 'Cell Type' } },
-                yaxis: { title: { text: 'Proportion' } },
+                yaxis: { title: { text: 'Percentage (%)' } },
                 boxmode: 'group',
                 autosize: true,
             }}

@@ -83,7 +83,7 @@ def fetch_tables(db_path):
                                     cell_type as population,
                                     SUM(cell_count) OVER (PARTITION BY sample) AS total_count, 
                                     cell_count as count,
-                                    ROUND(CAST(cell_count AS FLOAT) / SUM(cell_count) OVER (PARTITION BY sample), 4) AS proportion
+                                    ROUND(CAST(cell_count AS FLOAT) / SUM(cell_count) OVER (PARTITION BY sample) * 100, 2) AS proportion
                                 FROM CELL_COUNT 
                                 ORDER BY sample''',conn)
         #non-identifying subject and sample information

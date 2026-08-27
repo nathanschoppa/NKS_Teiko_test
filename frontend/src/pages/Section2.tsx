@@ -21,8 +21,7 @@ const Section2 = () => {
     const [filters, setFilters] = useState<Record<string, (string | number)[]>>({
         treatment: ['miraclib'],
         sample_type: ['PBMC'],
-        condition: ['melanoma'],
-        time_from_treatment_start: [0]
+        condition: ['melanoma']
     })
     const factorOptions = (options?.columns ?? []).filter(
         col => !['subject', 'sample'].includes(col)

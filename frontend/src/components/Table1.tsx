@@ -25,7 +25,7 @@ const columns = [
     columnHelper.accessor('population',  { header: 'Population' }),
     columnHelper.accessor('total_count', { header: 'Total Count' }),
     columnHelper.accessor('count',       { header: 'Count' }),
-    columnHelper.accessor('proportion',  { header: 'Proportion' }),
+    columnHelper.accessor('proportion',  { header: 'Percentage (%)' }),
 ]
 
 const Table1 = ({ data }: Props) => {
