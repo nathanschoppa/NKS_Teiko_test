@@ -17,7 +17,7 @@ pipeline:
 	python generate_outputs.py
 
 dashboard:
-	start python -m uvicorn main:app --reload
+	python -m uvicorn main:app --reload &
 	cd frontend && npm run dev
 
 test:

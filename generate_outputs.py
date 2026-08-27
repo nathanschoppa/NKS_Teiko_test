@@ -152,7 +152,7 @@ if __name__ == '__main__':
     logger.info('Loading analysis data from database...')
     logger.info(f'Loaded {len(analysis_data)} rows')
  
-    save_sample_data(DB_PATH)
+    save_sample_data()
     save_part2(analysis_data)
     save_part3(analysis_data)
  

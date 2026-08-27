@@ -325,7 +325,7 @@ def insert_csv_into_db(db_path:str|Path,df:pd.DataFrame):
             if cell_type in df.columns:
                 df_cell_count = df[['sample',cell_type]]
                 #fill a column with cell_type identifier
-                df_cell_count['cell_type'] = cell_type
+                df_cell_count = df_cell_count.assign(cell_type=cell_type)
                 df_cell_count = df_cell_count.rename(columns={cell_type:'cell_count'})
                 _insert_value_into_table(_conn,table='CELL_COUNT',values=df_cell_count,columns=['sample','cell_type','cell_count'])
 

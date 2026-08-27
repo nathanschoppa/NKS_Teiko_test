@@ -2,7 +2,12 @@
 
 // ── Helper Function ────────────────────────────────────────────────────────────
 
-const BASE_URL = 'http://localhost:8000'
+// const BASE_URL = __CODESPACE_NAME__
+//     ? `https://${__CODESPACE_NAME__}-8000.app.github.dev`
+//     : 'http://localhost:8000'
+
+// using Vite proxy, so not needed
+const BASE_URL = ''
 
 async function post<T>(endpoint: string, body: object = {}): Promise<T> {
     const response = await fetch(`${BASE_URL}${endpoint}`, {
