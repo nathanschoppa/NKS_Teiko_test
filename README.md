@@ -11,6 +11,8 @@ To get things started, run the makefile and open a browser to http://localhost:5
 
 The application creates a SQLite database called **teiko.db**. You can access it for future uses, but the application handles all the SQL calls. This should satisfy your requirement *part 1: data management*. The databased is structured according to the ERD below. Green are reference entities, blue are strong entities, and orange are weak entities.
 
+![alt text](ERD.png)
+
 This database is designed to effectively scale for thousands of projects and alternate cell types without disturbing extant data. 
 
 Under this design, all recorded data must be attached to a project. Currently, the database does not store project metadata (e.g. timeframe, people involved, location, etc.) but can be expanded to include these features. 
@@ -22,8 +24,6 @@ Each subject can have a number of samples, which have non-numeric metadata as re
 Finally, actual cell counts are stored as an intersection between sample and cell type. This stores all cell count data in a single table, enables expanding tested cell types by adding values to the cell type table, and removes constraints on which cell types were collected for each sample. This makes data storage flexible, although it imposes a significant merge load. In the future, this table can be partitioned by project to improve data storage while maintaining table properties.
 
 Overall, this design supports data confidentiality, scalability, and data integrity. Let me know if there is a core design requirement, such as subjects being able to participate in multiple projects, not captured by this design.
-
-![alt text](ERD.png)
 
 From here, I'll cover the sectionds and where to find information.
 
