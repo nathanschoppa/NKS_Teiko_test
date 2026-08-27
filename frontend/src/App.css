@@ -1,0 +1,8 @@
+/* App-level layout */
+.section {
+    background:    white;
+    border:        1px solid var(--border);
+    border-radius: 8px;
+    padding:       24px;
+    margin-bottom: 32px;
+}
